@@ -1,9 +1,10 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Coming Soon</title>
+  <title>Coming Soon - Bapus</title>
   <style>
     * {
       margin: 0;
@@ -12,62 +13,328 @@
     }
 
     body {
-      background-color: #0f172a;
-      color: white;
+      background-color: #ffffff;
+      color: #0f172a;
       font-family: 'Segoe UI', sans-serif;
+      min-height: 100vh;
       display: flex;
-      align-items: center;
-      justify-content: center;
-      height: 100vh;
-      text-align: center;
+      align-items: stretch;
     }
 
-    .container {
+    .left {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
       padding: 2rem;
+      text-align: center;
+      border-right: 1px solid #e2e8f0;
+    }
+
+    .right {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+      background: #fafafa;
+      overflow-y: auto;
+    }
+
+    .logo {
+      width: 405px;
+      margin-bottom: 0;
     }
 
     h1 {
-      font-size: 3.5rem;
+      font-size: 2.64rem;
       letter-spacing: 4px;
       text-transform: uppercase;
-      margin-bottom: 1rem;
-      color: #f8fafc;
+      margin-bottom: 0.5rem;
+      color: #9b1c1c;
     }
 
-    p {
-      font-size: 1.2rem;
-      color: #94a3b8;
-      margin-bottom: 2rem;
+    .launch-date {
+      font-size: 1.08rem;
+      color: #9b1c1c;
+      margin-bottom: 1.5rem;
+      letter-spacing: 1.5px;
     }
 
-    .dot {
-      display: inline-block;
-      width: 10px;
-      height: 10px;
-      background: #6366f1;
-      border-radius: 50%;
-      margin: 0 4px;
-      animation: bounce 1.4s infinite ease-in-out;
+    .countdown {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
     }
 
-    .dot:nth-child(2) { animation-delay: 0.2s; }
-    .dot:nth-child(3) { animation-delay: 0.4s; }
+    .countdown-box {
+      background: #f1f5f9;
+      border: 1px solid #e2e8f0;
+      border-radius: 12px;
+      padding: 0.75rem 1rem;
+      min-width: 70px;
+    }
 
-    @keyframes bounce {
-      0%, 80%, 100% { transform: scale(0); }
-      40% { transform: scale(1); }
+    .countdown-box span {
+      display: block;
+    }
+
+    .countdown-number {
+      font-size: 2.4rem;
+      font-weight: 700;
+      color: #9b1c1c;
+    }
+
+    .countdown-label {
+      font-size: 0.78rem;
+      color: #64748b;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-top: 0.2rem;
+    }
+
+    .form-section {
+      width: 100%;
+      max-width: 420px;
+    }
+
+    .form-section h2 {
+      font-size: 1.32rem;
+      color: #9b1c1c;
+      margin-bottom: 0.2rem;
+      text-align: center;
+    }
+
+    .form-section p {
+      font-size: 0.96rem;
+      color: #64748b;
+      text-align: center;
+      margin-bottom: 1.25rem;
+    }
+
+    .form-row {
+      display: flex;
+      gap: 0.75rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+
+    .form-group label {
+      font-size: 0.86rem;
+      color: #64748b;
+      margin-bottom: 0.3rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .form-group input,
+    .form-group textarea {
+      padding: 0.65rem 0.9rem;
+      border-radius: 8px;
+      border: 1px solid #e2e8f0;
+      background: #ffffff;
+      color: #0f172a;
+      font-size: 1.08rem;
+      font-family: 'Segoe UI', sans-serif;
+      outline: none;
+      transition: border 0.2s;
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus {
+      border-color: #9b1c1c;
+    }
+
+    .form-group textarea {
+      resize: none;
+      height: 70px;
+    }
+
+    .consent-box {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.6rem;
+      margin: 0.75rem 0;
+      background: #fff7f7;
+      border: 1px solid #fecaca;
+      border-radius: 8px;
+      padding: 0.75rem;
+    }
+
+    .consent-box input[type="checkbox"] {
+      margin-top: 2px;
+      accent-color: #9b1c1c;
+      width: 14px;
+      height: 14px;
+      flex-shrink: 0;
+    }
+
+    .consent-box label {
+      font-size: 0.9rem;
+      color: #64748b;
+      line-height: 1.5;
+    }
+
+    .consent-box label strong {
+      color: #9b1c1c;
+    }
+
+    .submit-btn {
+      width: 100%;
+      padding: 0.8rem;
+      border-radius: 8px;
+      border: none;
+      background: #9b1c1c;
+      color: white;
+      font-size: 1.14rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.2s;
+      letter-spacing: 1px;
+    }
+
+    .submit-btn:hover {
+      background: #7f1d1d;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        flex-direction: column;
+      }
+      .left {
+        border-right: none;
+        border-bottom: 1px solid #e2e8f0;
+        padding: 1.5rem;
+      }
+      .logo {
+        width: 270px;
+      }
+      .right {
+        padding: 1.5rem;
+      }
     }
   </style>
 </head>
 <body>
-  <div class="container">
+
+  <!-- LEFT SIDE -->
+  <div class="left">
+    <img src="{% static 'bapus.png' %}" alt="Bapus Logo" class="logo" />
     <h1>Coming Soon</h1>
-    <p>We're building something awesome. Stay tuned!</p>
-    <div>
-      <span class="dot"></span>
-      <span class="dot"></span>
-      <span class="dot"></span>
+    <p class="launch-date">Launching on Vaishakh Purnima — 1st May 2026</p>
+    <div class="countdown">
+      <div class="countdown-box">
+        <span class="countdown-number" id="days">00</span>
+        <span class="countdown-label">Days</span>
+      </div>
+      <div class="countdown-box">
+        <span class="countdown-number" id="hours">00</span>
+        <span class="countdown-label">Hours</span>
+      </div>
+      <div class="countdown-box">
+        <span class="countdown-number" id="minutes">00</span>
+        <span class="countdown-label">Minutes</span>
+      </div>
+      <div class="countdown-box">
+        <span class="countdown-number" id="seconds">00</span>
+        <span class="countdown-label">Seconds</span>
+      </div>
     </div>
   </div>
+
+  <!-- RIGHT SIDE -->
+  <div class="right">
+    <div class="form-section">
+      <h2>Register Your Franchise Interest</h2>
+      <p>Be the first to know when we launch. Submit your interest below.</p>
+
+      <form action="https://formspree.io/f/mojypzbz" method="POST">
+
+        <div class="form-row">
+          <div class="form-group">
+            <label>Full Name *</label>
+            <input type="text" name="full_name" placeholder="Your full name" required />
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label>Email Address *</label>
+            <input type="email" name="email" placeholder="your@email.com" required />
+          </div>
+          <div class="form-group">
+            <label>Phone Number *</label>
+            <input type="tel" name="phone" placeholder="+91 XXXXX XXXXX" required />
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label>City *</label>
+            <input type="text" name="city" placeholder="Your city" required />
+          </div>
+          <div class="form-group">
+            <label>State *</label>
+            <input type="text" name="state" placeholder="Your state" required />
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label>Additional Comments</label>
+            <textarea name="remarks" placeholder="Any questions or comments about the franchise..."></textarea>
+          </div>
+        </div>
+
+        <div class="consent-box">
+          <input type="checkbox" id="consent" name="consent" value="agreed" required />
+          <label for="consent">
+            I understand that this is a <strong>non-binding expression of interest</strong> for taking a franchise of <strong>Bapu's Rotlo</strong>. This submission does not constitute a legal agreement or commitment of any kind.
+          </label>
+        </div>
+
+        <button type="submit" class="submit-btn">Submit Franchise Interest</button>
+
+      </form>
+    </div>
+  </div>
+
+  <script>
+    const launchDate = new Date('2026-05-01T00:00:00').getTime();
+
+    function updateCountdown() {
+      const now = new Date().getTime();
+      const diff = launchDate - now;
+
+      if (diff <= 0) {
+        document.getElementById('days').textContent = '00';
+        document.getElementById('hours').textContent = '00';
+        document.getElementById('minutes').textContent = '00';
+        document.getElementById('seconds').textContent = '00';
+        return;
+      }
+
+      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+      document.getElementById('days').textContent = String(days).padStart(2, '0');
+      document.getElementById('hours').textContent = String(hours).padStart(2, '0');
+      document.getElementById('minutes').textContent = String(minutes).padStart(2, '0');
+      document.getElementById('seconds').textContent = String(seconds).padStart(2, '0');
+    }
+
+    setInterval(updateCountdown, 1000);
+    updateCountdown();
+  </script>
+
 </body>
 </html>
