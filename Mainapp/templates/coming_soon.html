@@ -2,307 +2,1397 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Coming Soon - Bapus</title>
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+  <title>Bapu's Rotlo - Authentic Gujarati Taste</title>
+  
+  <!-- SEO Meta -->
+  <meta name="description" content="Bapu's Rotlo - Bringing the royal culture of Gujarat to the global stage. Authentic Gujarati cuisine made with love.">
+  <meta name="keywords" content="Gujarati food, rotlo, franchise, restaurant, bapus, Kutch, Gujarat">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="{% static 'images/favicon.png' %}">
+  
+  <!-- CSS Libraries -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+  
   <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-
+    /* ========== RESET & GLOBAL ========== */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
     body {
-      font-family: 'Segoe UI', sans-serif;
-      display: flex;
-      min-height: 100vh;
-      background: #ffffff;
+      font-family: 'Poppins', 'Segoe UI', system-ui, -apple-system, sans-serif;
+      background-color: #ffffff;
+      overflow-x: hidden;
+      color: #2d2a2a;
+      line-height: 1.6;
     }
-
-    .left {
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
+    
+    html {
+      scroll-behavior: smooth;
+    }
+    
+    /* ========== CUSTOM COLORS ========== */
+    :root {
+      --primary: #9b1c1c;
+      --primary-dark: #7f1a1a;
+      --primary-light: #c62828;
+      --secondary: #ffb830;
+      --gold: #d4af37;
+      --dark: #2c2c2c;
+      --light: #fffaf3;
+      --gray: #64748b;
+      --maroon: #800020;
+      --saffron: #f4a460;
+    }
+    
+    /* ========== BUTTONS ========== */
+    .btn-ct {
+      display: inline-flex;
       align-items: center;
-      padding: 2rem;
-      text-align: center;
-      border-right: 1px solid #e2e8f0;
-    }
-
-    .right {
-      flex: 1;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      padding: 2rem;
-      background: #fafafa;
-    }
-
-    .logo {
-      width: 320px;
-      margin-bottom: 10px;
-    }
-
-    h1 {
-      font-size: 2.5rem;
-      color: #9b1c1c;
-      letter-spacing: 3px;
-    }
-
-    .launch-date {
-      margin: 10px 0 20px;
-      color: #9b1c1c;
-    }
-
-    .countdown {
-      display: flex;
       gap: 12px;
-    }
-
-    .countdown-box {
-      background: #f1f5f9;
-      padding: 10px;
-      border-radius: 10px;
-      min-width: 70px;
-      text-align: center;
-    }
-
-    .countdown-box span {
-      display: block;
-      text-align: center;
-    }
-
-    .countdown-number {
-      font-size: 1.8rem;
-      font-weight: bold;
-      color: #9b1c1c;
-    }
-
-    .countdown-label {
-      font-size: 0.75rem;
-      color: #64748b;
-    }
-
-    .form-section {
-      width: 100%;
-      max-width: 450px;
-    }
-
-    .form-section h2 {
-      text-align: center;
-      color: #9b1c1c;
-      margin-bottom: 5px;
-    }
-
-    .form-section p {
-      text-align: center;
-      color: #64748b;
-      margin-bottom: 20px;
-    }
-
-    .form-row {
-      display: flex;
-      gap: 10px;
-      margin-bottom: 12px;
-    }
-
-    .form-group {
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-    }
-
-    .form-group label {
-      font-size: 12px;
-      color: #64748b;
-      margin-bottom: 4px;
-    }
-
-    .form-group input,
-    .form-group textarea {
-      padding: 10px;
-      border-radius: 6px;
-      border: 1px solid #e2e8f0;
-      font-size: 14px;
-      width: 100%;
-    }
-
-    .form-group textarea {
-      height: 80px;
-      resize: none;
-    }
-
-    .form-group input:focus,
-    .form-group textarea:focus {
-      border-color: #9b1c1c;
-      outline: none;
-    }
-
-    .consent-box {
-      display: flex;
-      gap: 8px;
-      background: #fff7f7;
-      border: 1px solid #fecaca;
-      padding: 10px;
-      border-radius: 6px;
-      font-size: 12px;
-      color: #64748b;
-      margin-bottom: 12px;
-    }
-
-    .consent-box input {
-      margin-top: 3px;
-      accent-color: #9b1c1c;
-      flex-shrink: 0;
-    }
-
-    .consent-box strong {
-      color: #9b1c1c;
-    }
-
-    .submit-btn {
-      width: 100%;
-      padding: 12px;
-      border: none;
-      border-radius: 6px;
-      background: #9b1c1c;
+      background: var(--primary);
       color: white;
-      font-size: 15px;
       font-weight: 600;
+      padding: 14px 35px;
+      border-radius: 50px;
+      text-decoration: none;
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      border: none;
+      font-size: 1rem;
+      letter-spacing: 0.5px;
+      position: relative;
+      overflow: hidden;
+      z-index: 1;
+    }
+    
+    .btn-ct::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: var(--primary-dark);
+      transition: all 0.4s ease;
+      z-index: -1;
+      border-radius: 50px;
+    }
+    
+    .btn-ct:hover::before {
+      left: 0;
+    }
+    
+    .btn-ct:hover {
+      color: white;
+      transform: translateY(-3px);
+      box-shadow: 0 10px 30px rgba(155, 28, 28, 0.3);
+    }
+    
+    .btn-small {
+      padding: 8px 22px;
+      font-size: 0.85rem;
+    }
+    
+    /* ========== SECTION HEADINGS ========== */
+    .section-heading {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+    
+    .sub-title {
+      color: var(--primary);
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      font-size: 0.85rem;
+      display: inline-block;
+      background: rgba(155, 28, 28, 0.1);
+      padding: 5px 15px;
+      border-radius: 50px;
+      margin-bottom: 15px;
+    }
+    
+    .section-heading h2 {
+      font-size: 2.8rem;
+      font-weight: 800;
+      margin-top: 8px;
+      color: var(--dark);
+      position: relative;
+      display: inline-block;
+    }
+    
+    .section-heading h2::after {
+      content: '';
+      position: absolute;
+      bottom: -15px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 3px;
+      background: var(--primary);
+      border-radius: 3px;
+    }
+    
+    @media (max-width: 768px) {
+      .section-heading h2 { font-size: 2rem; }
+      .section-heading { margin-bottom: 30px; }
+    }
+    
+    /* ========== PRELOADER ========== */
+    #preloader {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, #fff5e9 0%, #fff 100%);
+      z-index: 9999;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: opacity 0.5s ease;
+    }
+    
+    .preloader-box {
+      text-align: center;
+    }
+    
+    .preloader-box img {
+      width: 100px;
+      animation: pulse 1.2s infinite;
+    }
+    
+    .preloader-box h3 {
+      margin-top: 20px;
+      color: var(--primary);
+      font-weight: 600;
+    }
+    
+    @keyframes pulse {
+      0%, 100% { transform: scale(0.9); opacity: 0.6; }
+      50% { transform: scale(1.1); opacity: 1; }
+    }
+    
+    /* ========== HEADER WITH TWO LOGOS ========== */
+    header {
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+      padding: 0px 0;
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 1000;
+      transition: all 0.3s ease;
+    }
+    
+    .navbar-container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 5px 0;
+    }
+    
+    /* Left Logo - Clickable */
+    .nav-left {
+      flex: 0 0 auto;
+    }
+    
+    .left-logo {
+      display: inline-block;
       cursor: pointer;
     }
-
-    .submit-btn:hover {
-      background: #7f1d1d;
+    
+    .left-logo img {
+      max-height: 70px;
+      width: auto;
+      transition: transform 0.3s ease;
     }
-
-    @media (max-width: 768px) {
-      body { flex-direction: column; }
-      .left {
-        border-right: none;
-        border-bottom: 1px solid #e2e8f0;
+    
+    .left-logo img:hover {
+      transform: scale(1.05);
+    }
+    
+    /* Center Logo - Clickable */
+    .nav-center {
+      flex: 1;
+      text-align: center;
+    }
+    
+    .center-logo {
+      display: inline-block;
+      margin-left: 230px;
+      cursor: pointer;
+    }
+    
+    .center-logo img {
+      max-height: 90px;
+      width: auto;
+      transition: transform 0.3s ease;
+    }
+    
+    .center-logo img:hover {
+      transform: scale(1.05);
+    }
+    
+    /* Right Navigation */
+    .nav-right {
+      flex: 0 0 auto;
+    }
+    
+    .main-menu {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+    }
+    
+    .menu ul {
+      display: flex;
+      list-style: none;
+      gap: 30px;
+      margin: 0;
+      padding: 0;
+      align-items: center;
+    }
+    
+    .menu ul li a {
+      text-decoration: none;
+      font-weight: 600;
+      color: var(--dark);
+      transition: 0.3s;
+      position: relative;
+      font-size: 1rem;
+    }
+    
+    .menu ul li a::after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--primary);
+      transition: width 0.3s ease;
+    }
+    
+    .menu ul li a:hover::after,
+    .menu ul li.active a::after {
+      width: 100%;
+    }
+    
+    .menu ul li a:hover,
+    .menu ul li.active a {
+      color: var(--primary);
+    }
+    
+    /* Franchise button in nav */
+    .nav-franchise-btn {
+      background: var(--primary);
+      color: white !important;
+      padding: 8px 20px !important;
+      border-radius: 50px !important;
+    }
+    
+    .nav-franchise-btn::after {
+      display: none !important;
+    }
+    
+    .nav-franchise-btn:hover {
+      background: var(--primary-dark);
+      transform: translateY(-2px);
+    }
+    
+    /* Mobile menu toggle */
+    .menu-toggle {
+      display: none;
+      font-size: 1.5rem;
+      cursor: pointer;
+      color: var(--primary);
+    }
+    
+    @media (max-width: 992px) {
+      .menu-toggle {
+        display: block;
       }
-      .form-row {
+      
+      .menu {
+        display: none;
+        position: absolute;
+        top: 80px;
+        right: 0;
+        width: 250px;
+        background: white;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        padding: 20px;
+        z-index: 999;
+        border-radius: 15px;
+      }
+      
+      .menu.active {
+        display: block;
+      }
+      
+      .menu ul {
         flex-direction: column;
+        gap: 20px;
+        align-items: flex-end;
       }
-      .logo {
-        width: 240px;
+      
+      .left-logo img {
+        max-height: 50px;
       }
+      
+      .center-logo {
+        margin-left: 0;
+      }
+      
+      .center-logo img {
+        max-height: 55px;
+      }
+      
+      .navbar-container {
+        padding: 5px 0;
+      }
+    }
+    
+    /* Alert Messages */
+    .alert-messages {
+      position: fixed;
+      top: 100px;
+      right: 20px;
+      z-index: 9999;
+      max-width: 400px;
+    }
+    .alert {
+      padding: 15px 20px;
+      border-radius: 10px;
+      margin-bottom: 10px;
+      animation: slideIn 0.3s ease;
+    }
+    .alert-success { background: #d4edda; color: #155724; border-left: 4px solid #28a745; }
+    .alert-error { background: #f8d7da; color: #721c24; border-left: 4px solid #dc3545; }
+    @keyframes slideIn {
+      from { transform: translateX(100%); opacity: 0; }
+      to { transform: translateX(0); opacity: 1; }
+    }
+    
+    /* ========== HERO BANNER - FULL SCREEN ========== */
+    .home-banner {
+      min-height: 100vh;
+      padding: 100px 5% 0;
+      background: linear-gradient(135deg, #fffaf3 0%, #fff5e9 100%);
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+    }
+    
+    .home-banner::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -20%;
+      width: 500px;
+      height: 500px;
+      background: radial-gradient(circle, rgba(155,28,28,0.05) 0%, transparent 70%);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+    
+    .home-banner-title {
+      font-size: 3.8rem;
+      font-weight: 800;
+      line-height: 1.2;
+      margin-bottom: 20px;
+    }
+    
+    .home-banner-title span {
+      color: var(--primary);
+      position: relative;
+      display: inline-block;
+    }
+    
+    .home-banner-title span::after {
+      content: '';
+      position: absolute;
+      bottom: 5px;
+      left: 0;
+      width: 100%;
+      height: 8px;
+      background: rgba(255, 184, 48, 0.3);
+      z-index: -1;
+    }
+    
+    .home-banner-desc p {
+      font-size: 1.1rem;
+      color: var(--gray);
+      margin: 20px 0 30px;
+    }
+    
+    .home-right-img {
+      position: relative;
+    }
+    
+    .home-right-img img {
+      max-width: 100%;
+      animation: float 4s ease-in-out infinite;
+      filter: drop-shadow(0 20px 30px rgba(0,0,0,0.1));
+    }
+    
+    @keyframes float {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-20px); }
+    }
+    
+    @media (max-width: 768px) {
+      .home-banner { 
+        min-height: auto;
+        padding: 120px 5% 60px; 
+      }
+      .home-banner-title { font-size: 2.2rem; }
+    }
+    
+    /* ========== STORY CAROUSEL - REDUCED HEIGHT ========== */
+    .story-carousel-section {
+      padding: 50px 0;
+      background: var(--light);
+    }
+    
+    .story-carousel-slider .story-item {
+      padding: 15px;
+    }
+    
+    .story-card {
+      background: white;
+      border-radius: 25px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+      transition: all 0.4s ease;
+    }
+    
+    .story-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 20px 40px rgba(155, 28, 28, 0.15);
+    }
+    
+    .story-card-img {
+      height: 220px;
+      overflow: hidden;
+    }
+    
+    .story-card-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+    
+    .story-card:hover .story-card-img img {
+      transform: scale(1.05);
+    }
+    
+    .story-card-content {
+      padding: 20px;
+    }
+    
+    .story-card-content h3 {
+      font-size: 1.3rem;
+      font-weight: 700;
+      margin-bottom: 10px;
+      color: var(--primary);
+    }
+    
+    .story-card-content .role {
+      color: var(--gold);
+      font-weight: 600;
+      margin-bottom: 10px;
+      display: inline-block;
+      background: rgba(212, 175, 55, 0.1);
+      padding: 4px 12px;
+      border-radius: 50px;
+      font-size: 0.75rem;
+    }
+    
+    .story-card-content p {
+      font-size: 0.9rem;
+      line-height: 1.5;
+    }
+    
+    /* ========== VISION & VALUES - REDUCED HEIGHT ========== */
+    .vision-values {
+      background: linear-gradient(135deg, #2c1810 0%, #1a0f0a 100%);
+      color: white;
+      padding: 50px 0;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .vision-values::before {
+      content: '🏺';
+      position: absolute;
+      font-size: 200px;
+      opacity: 0.05;
+      bottom: -30px;
+      right: -30px;
+      pointer-events: none;
+    }
+    
+    .vision-card, .value-card {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      border-radius: 25px;
+      padding: 30px 25px;
+      margin-bottom: 25px;
+      transition: all 0.3s ease;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+    
+    .vision-card:hover, .value-card:hover {
+      transform: translateY(-3px);
+      background: rgba(255, 255, 255, 0.15);
+      border-color: var(--gold);
+    }
+    
+    .vision-icon, .value-icon {
+      font-size: 2.5rem;
+      margin-bottom: 15px;
+      color: var(--gold);
+    }
+    
+    .vision-card h3, .value-card h3 {
+      font-size: 1.3rem;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+    
+    .vision-card p, .value-card p {
+      font-size: 0.9rem;
+      line-height: 1.5;
+    }
+    
+    .culture-tag {
+      display: inline-block;
+      background: var(--gold);
+      color: var(--dark);
+      padding: 5px 15px;
+      border-radius: 50px;
+      font-weight: 600;
+      margin: 8px 4px;
+      font-size: 0.75rem;
+    }
+    
+    /* ========== MENU CAROUSEL STYLES ========== */
+    .menu-carousel-section {
+      padding: 60px 0;
+      background: white;
+    }
+    
+    .menu-carousel {
+      padding: 0 20px;
+    }
+    
+    .menu-carousel-item {
+      background: white;
+      border-radius: 25px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+      transition: all 0.3s ease;
+      margin: 15px;
+      text-align: center;
+    }
+    
+    .menu-carousel-item:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 40px rgba(155, 28, 28, 0.15);
+    }
+    
+    .menu-carousel-img {
+      height: 220px;
+      overflow: hidden;
+    }
+    
+    .menu-carousel-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+    
+    .menu-carousel-item:hover .menu-carousel-img img {
+      transform: scale(1.05);
+    }
+    
+    .menu-carousel-content {
+      padding: 20px;
+    }
+    
+    .menu-carousel-content h4 {
+      font-size: 1.2rem;
+      font-weight: 800;
+      color: var(--primary);
+      margin-bottom: 8px;
+    }
+    
+    .menu-carousel-content p {
+      color: var(--gray);
+      font-size: 0.85rem;
+      line-height: 1.4;
+    }
+    
+    /* ========== TESTIMONIALS SECTION ========== */
+    .testimonials-section {
+      padding: 60px 0;
+      background: var(--light);
+    }
+    
+    .testimonial-card {
+      background: white;
+      border-radius: 25px;
+      padding: 30px;
+      text-align: center;
+      margin: 15px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+      transition: all 0.4s ease;
+    }
+    
+    .testimonial-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 20px 40px rgba(155, 28, 28, 0.15);
+    }
+    
+    .testimonial-card i {
+      font-size: 2.5rem;
+      color: var(--gold);
+      margin-bottom: 15px;
+    }
+    
+    .testimonial-card p {
+      font-style: italic;
+      font-size: 0.9rem;
+      margin-bottom: 15px;
+    }
+    
+    .testimonial-card h5 {
+      font-weight: 800;
+      color: var(--primary);
+      margin-bottom: 5px;
+      font-size: 1rem;
+    }
+    
+    .testimonial-card .stars {
+      color: var(--gold);
+      margin-top: 10px;
+      font-size: 0.8rem;
+    }
+    
+    /* ========== FRANCHISE FORM ========== */
+    .franchise-form {
+      background: white;
+      border-radius: 40px;
+      padding: 40px;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.08);
+      margin: 50px 0;
+    }
+    
+    .form-control {
+      border-radius: 15px;
+      border: 1px solid #e2e8f0;
+      padding: 12px 15px;
+      transition: all 0.3s ease;
+    }
+    
+    .form-control:focus {
+      border-color: var(--primary);
+      box-shadow: 0 0 0 0.2rem rgba(155, 28, 28, 0.1);
+    }
+    
+    .consent-box {
+      background: #fff5ef;
+      border-radius: 20px;
+      padding: 15px;
+      font-size: 0.85rem;
+    }
+    
+    /* ========== REVIEW FORM STYLES - FIXED STAR RATING ========== */
+    .review-section {
+      padding: 60px 0;
+      background: linear-gradient(135deg, #fffaf3 0%, #fff5e9 100%);
+    }
+    
+    .review-form-box {
+      background: white;
+      border-radius: 40px;
+      padding: 40px;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.08);
+    }
+    
+    .rating-label {
+      font-weight: 600;
+      color: var(--dark);
+      margin-bottom: 10px;
+      display: block;
+    }
+    
+    .star-rating {
+      display: flex;
+      gap: 15px;
+      margin-bottom: 20px;
+    }
+    
+    .star-rating i {
+      font-size: 2rem;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      color: #ccc;
+    }
+    
+    /* Filled star style - YELLOW */
+    .star-rating i.fas,
+    .star-rating i.solid {
+      color: #ffb830 !important;
+    }
+    
+    /* Empty star style - GRAY */
+    .star-rating i.far {
+      color: #ccc !important;
+    }
+    
+    .star-rating i:hover {
+      color: #ffb830 !important;
+    }
+    
+    /* ========== FOOTER ========== */
+    footer { background: #1a1a1a; color: #aaa; }
+    .footer-title { color: var(--primary); font-weight: 700; margin-bottom: 20px; }
+    .footer-menu { list-style: none; padding-left: 0; }
+    .footer-menu li { margin-bottom: 10px; }
+    .footer-menu li a { color: #aaa; text-decoration: none; transition: 0.3s; }
+    .footer-menu li a:hover { color: var(--primary); padding-left: 5px; }
+    .footer-social { display: flex; gap: 15px; list-style: none; padding: 0; }
+    .footer-social li a { background: var(--primary); width: 38px; height: 38px; display: inline-flex; align-items: center; justify-content: center; border-radius: 50%; color: white; transition: 0.3s; text-decoration: none; }
+    .footer-social li a i { color: white; font-size: 1rem; }
+    .footer-social li a:hover { background: var(--primary-dark); transform: translateY(-3px); }
+    .copyright { background: #111; text-align: center; padding: 20px; font-size: 0.75rem; }
+    
+    /* Owl Carousel Navigation */
+    .owl-nav button {
+      background: var(--primary) !important;
+      width: 40px;
+      height: 40px;
+      border-radius: 50% !important;
+      color: white !important;
+      font-size: 20px !important;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+    
+    .owl-nav button:hover {
+      background: var(--primary-dark) !important;
+    }
+    
+    .owl-prev {
+      left: -15px;
+    }
+    
+    .owl-next {
+      right: -15px;
+    }
+    
+    .owl-dots {
+      margin-top: 20px;
+    }
+    
+    .owl-dot span {
+      background: #ccc !important;
+    }
+    
+    .owl-dot.active span {
+      background: var(--primary) !important;
+    }
+    
+    @media (max-width: 768px) {
+      .franchise-form { padding: 25px; margin: 30px 0; }
+      .owl-prev { left: 0; }
+      .owl-next { right: 0; }
+      .owl-nav button { width: 30px; height: 30px; font-size: 16px !important; }
+      .review-form-box { padding: 25px; }
+      .vision-card, .value-card { padding: 20px; }
     }
   </style>
 </head>
-
 <body>
 
-  <!-- LEFT -->
-  <div class="left">
-    <img src="{% static 'bapus.png' %}" class="logo" alt="Bapus Logo" />
-    <h1>Coming Soon</h1>
-    <p class="launch-date">Launching on Vaishakh Purnima — 1st May 2026</p>
-    <div class="countdown">
-      <div class="countdown-box">
-        <span class="countdown-number" id="days">00</span>
-        <span class="countdown-label">Days</span>
+<!-- PRELOADER -->
+<div id="preloader">
+  <div class="preloader-box">
+    <img src="{% static 'bapus.png' %}" alt="Bapus Logo">
+    <h3>Loading Royal Flavors...</h3>
+  </div>
+</div>
+
+<!-- HEADER WITH TWO LOGOS AND FRANCHISE BUTTON -->
+<header>
+  <div class="container">
+    <div class="navbar-container">
+      <!-- Left Logo - Clickable -->
+      <div class="nav-left">
+        <a href="{% url 'home' %}" class="left-logo">
+          <img src="{% static 'bapus.png' %}" alt="Left Logo">
+        </a>
       </div>
-      <div class="countdown-box">
-        <span class="countdown-number" id="hours">00</span>
-        <span class="countdown-label">Hours</span>
+      
+      <!-- Center Logo - Clickable -->
+      <div class="nav-center">
+        <a href="{% url 'home' %}" class="center-logo">
+          <img src="{% static 'center-logo.png' %}" alt="Bapus Rotlo Center Logo">
+        </a>
       </div>
-      <div class="countdown-box">
-        <span class="countdown-number" id="minutes">00</span>
-        <span class="countdown-label">Minutes</span>
-      </div>
-      <div class="countdown-box">
-        <span class="countdown-number" id="seconds">00</span>
-        <span class="countdown-label">Seconds</span>
+      
+      <!-- Right Navigation with Franchise Button -->
+      <div class="nav-right">
+        <div class="main-menu">
+          <div class="menu-toggle" id="menuToggle">
+            <i class="fas fa-bars"></i>
+          </div>
+          <div class="menu" id="mainMenu">
+            <ul>
+              <li class="active"><a href="{% url 'home' %}">Home</a></li>
+              <li><a href="{% url 'menu' %}">Menu</a></li>
+              <li><a href="{% url 'about' %}">About</a></li>
+              <li><a href="{% url 'contact' %}">Contact</a></li>
+              <li><a href="{% url 'franchise' %}" class="nav-franchise-btn">Franchise</a></li>
+            </ul>
+          </div>
+        </div>
       </div>
     </div>
   </div>
+</header>
 
-  <!-- RIGHT -->
-  <div class="right">
-    <div class="form-section">
-      <h2>Register Your Franchise Interest</h2>
-      <p>Be the first to know when we launch. Submit your interest below.</p>
-
-      <form action="https://formspree.io/f/mojypzbz" method="POST">
-
-        <div class="form-row">
-          <div class="form-group">
-            <label>Full Name *</label>
-            <input type="text" name="full_name" placeholder="Your full name" required />
-          </div>
-        </div>
-
-        <div class="form-row">
-          <div class="form-group">
-            <label>Email Address *</label>
-            <input type="email" name="email" placeholder="your@email.com" required />
-          </div>
-          <div class="form-group">
-            <label>Phone Number *</label>
-            <input type="tel" name="phone" placeholder="+91 XXXXX XXXXX" required />
-          </div>
-        </div>
-
-        <div class="form-row">
-          <div class="form-group">
-            <label>City *</label>
-            <input type="text" name="city" placeholder="Your city" required />
-          </div>
-          <div class="form-group">
-            <label>State *</label>
-            <input type="text" name="state" placeholder="Your state" required />
-          </div>
-        </div>
-
-        <div class="form-row">
-          <div class="form-group">
-            <label>Additional Comments</label>
-            <textarea name="remarks" placeholder="Any questions or comments about the franchise..."></textarea>
-          </div>
-        </div>
-
-        <div class="consent-box">
-          <input type="checkbox" id="consent" name="consent" required />
-          <label for="consent">
-            I understand that this is a <strong>non-binding expression of interest</strong> for taking a franchise of <strong>Bapu's Rotlo</strong>. This submission is a soft commitment and not a legal agreement of any kind.
-          </label>
-        </div>
-
-        <button type="submit" class="submit-btn">Submit Franchise Interest</button>
-
-      </form>
+<main>
+  <!-- Alert Messages -->
+  {% if messages %}
+  <div class="alert-messages">
+    {% for message in messages %}
+    <div class="alert alert-{% if message.tags == 'error' %}error{% else %}success{% endif %} alert-dismissible fade show" role="alert">
+      {{ message }}
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close" style="float: right; background: none; border: none; font-size: 1.2rem; cursor: pointer;">&times;</button>
     </div>
+    {% endfor %}
   </div>
+  {% endif %}
 
-  <script>
-    const launchDate = new Date('2026-05-01T00:00:00').getTime();
+  <!-- HERO BANNER - FULL SCREEN -->
+  <section class="home-banner" id="home">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-lg-6 wow animate__animated animate__fadeInLeft">
+          <div class="home-banner-content">
+            <h1 class="home-banner-title">Bringing the <span>Royal Culture</span><br>of Gujarat to the World</h1>
+            <div class="home-banner-desc">
+              <p>Authentic taste from the heart of Gujarat. Traditional recipes passed through generations, now ready to conquer global palates.</p>
+            </div>
+            <a href="{% url 'franchise' %}" class="btn-ct"><i class="fas fa-handshake"></i> Register Franchise Interest</a>
+          </div>
+        </div>
+        <div class="col-lg-6 text-center wow animate__animated animate__fadeInRight">
+          <div class="home-right-img">
+            <img src="{% static 'rotlo.png' %}" alt="Delicious Rotlo Platter">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-    function updateCountdown() {
-      const now = new Date().getTime();
-      const diff = launchDate - now;
+  <!-- STORY CAROUSEL (Our Story + Team) -->
+  <section class="story-carousel-section">
+    <div class="container">
+      <div class="section-heading wow animate__animated animate__fadeInUp">
+        <span class="sub-title">Our Journey</span>
+        <h2>Bapu's Story</h2>
+      </div>
+      <div class="story-carousel-slider owl-carousel owl-theme wow animate__animated animate__fadeInUp">
+        <div class="story-item">
+          <div class="story-card">
+            <div class="story-card-img">
+              <img src="{% static 'story.png' %}" alt="Our Beginning">
+            </div>
+            <div class="story-card-content">
+              <h3>Our Beginning</h3>
+              <span class="role">Est. 2026</span>
+              <p>Born from the rich culinary heritage of Kutch, Gujarat, Bapu's Rotlo started with a mission to share authentic Gujarati flavors with the world.</p>
+            </div>
+          </div>
+        </div>
+        <div class="story-item">
+          <div class="story-card">
+            <div class="story-card-img">
+              <img src="{% static 'story.jpg' %}" alt="Royal Heritage">
+            </div>
+            <div class="story-card-content">
+              <h3>Royal Heritage</h3>
+              <span class="role">Kutch, Gujarat</span>
+              <p>Inspired by the royal kitchens of Gujarat, we bring you dishes that were once served to royalty.</p>
+            </div>
+          </div>
+        </div>
+        <div class="story-item">
+          <div class="story-card">
+            <div class="story-card-img">
+              <img src="{% static 'story.jpg' %}" alt="Our Chefs">
+            </div>
+            <div class="story-card-content">
+              <h3>Master Chefs</h3>
+              <span class="role">Tradition Keepers</span>
+              <p>Our master chefs from Kutch bring authenticity, passion, and the warmth of home kitchens.</p>
+            </div>
+          </div>
+        </div>
+        <div class="story-item">
+          <div class="story-card">
+            <div class="story-card-img">
+              <img src="{% static 'story1.jpg' %}" alt="Leadership">
+            </div>
+            <div class="story-card-content">
+              <h3>Visionary Leadership</h3>
+              <span class="role">Global Ambassadors</span>
+              <p>Led by a team passionate about cultural preservation, we're on a mission to put Gujarati cuisine on the global stage.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-      if (diff <= 0) {
-        document.getElementById('days').textContent = '00';
-        document.getElementById('hours').textContent = '00';
-        document.getElementById('minutes').textContent = '00';
-        document.getElementById('seconds').textContent = '00';
-        return;
+  <!-- VISION & VALUES SECTION -->
+  <section class="vision-values">
+    <div class="container">
+      <div class="section-heading wow animate__animated animate__fadeInUp">
+        <span class="sub-title" style="background: rgba(212, 175, 55, 0.2); color: var(--gold);">Our Ethos</span>
+        <h2 style="color: white;">Vision & Royal Values</h2>
+      </div>
+      
+      <div class="row">
+        <div class="col-lg-6 wow animate__animated animate__fadeInLeft">
+          <div class="vision-card">
+            <div class="vision-icon"><i class="fas fa-crown"></i></div>
+            <h3>Our Vision</h3>
+            <p>To bring the rich, royal culinary heritage of Kutch, Gujarat to every corner of the globe.</p>
+            <div style="margin-top: 15px;">
+              <span class="culture-tag"><i class="fas fa-map-marker-alt"></i> Kutch</span>
+              <span class="culture-tag"><i class="fas fa-map-marker-alt"></i> Gujarat</span>
+              <span class="culture-tag"><i class="fas fa-globe"></i> Global Stage</span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="col-lg-6 wow animate__animated animate__fadeInRight">
+          <div class="vision-card">
+            <div class="vision-icon"><i class="fas fa-heart"></i></div>
+            <h3>Our Mission</h3>
+            <p>To preserve and promote authentic recipes from the royal kitchens of Gujarat and deliver unforgettable dining experiences.</p>
+            <div style="margin-top: 15px;">
+              <span class="culture-tag"><i class="fas fa-utensils"></i> Authenticity</span>
+              <span class="culture-tag"><i class="fas fa-hand-sparkles"></i> Quality</span>
+              <span class="culture-tag"><i class="fas fa-smile"></i> Hospitality</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="row mt-3">
+        <div class="col-md-4 wow animate__animated animate__fadeInUp">
+          <div class="value-card">
+            <div class="value-icon"><i class="fas fa-seedling"></i></div>
+            <h3>Rooted in Tradition</h3>
+            <p>Every recipe is a legacy passed down through generations.</p>
+          </div>
+        </div>
+        <div class="col-md-4 wow animate__animated animate__fadeInUp" data-wow-delay="0.1s">
+          <div class="value-card">
+            <div class="value-icon"><i class="fas fa-hands-helping"></i></div>
+            <h3>Community First</h3>
+            <p>We empower local farmers and artisans from Kutch, Gujarat.</p>
+          </div>
+        </div>
+        <div class="col-md-4 wow animate__animated animate__fadeInUp" data-wow-delay="0.2s">
+          <div class="value-card">
+            <div class="value-icon"><i class="fas fa-chart-line"></i></div>
+            <h3>Global Excellence</h3>
+            <p>Combining traditional wisdom with modern quality standards.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MENU CAROUSEL SECTION (8 Items, No Prices) -->
+  <section class="menu-carousel-section">
+    <div class="container">
+      <div class="section-heading wow animate__animated animate__fadeInUp">
+        <span class="sub-title">Royal Dishes</span>
+        <h2>Our Signature Menu</h2>
+      </div>
+      <div class="menu-carousel owl-carousel owl-theme wow animate__animated animate__fadeInUp">
+        
+        <div class="menu-carousel-item">
+          <div class="menu-carousel-img"><img src="{% static 'images/rotlo.jpg' %}" alt="Regular Rotlo"></div>
+          <div class="menu-carousel-content">
+            <h4>Regular Rotlo</h4>
+            <p>Traditional millet rotlo with homemade ghee and jaggery</p>
+          </div>
+        </div>
+        
+        <div class="menu-carousel-item">
+          <div class="menu-carousel-img"><img src="{% static 'images/rotlo.jpg' %}" alt="Dahi Rotlo"></div>
+          <div class="menu-carousel-content">
+            <h4>Dahi Rotlo</h4>
+            <p>Crumbled rotlo served with fresh curd and jaggery</p>
+          </div>
+        </div>
+        
+        <div class="menu-carousel-item">
+          <div class="menu-carousel-img"><img src="{% static 'images/rotlo.jpg' %}" alt="Buttermilk Rotlo"></div>
+          <div class="menu-carousel-content">
+            <h4>Buttermilk Rotlo</h4>
+            <p>Rotlo served with spiced buttermilk (Chaas)</p>
+          </div>
+        </div>
+        
+        <div class="menu-carousel-item">
+          <div class="menu-carousel-img"><img src="{% static 'images/rotlo.jpg' %}" alt="Special Rotlo"></div>
+          <div class="menu-carousel-content">
+            <h4>Special Rotlo</h4>
+            <p>Premium rotlo made with extra ghee and special masala blend</p>
+          </div>
+        </div>
+        
+        <div class="menu-carousel-item">
+          <div class="menu-carousel-img"><img src="{% static 'images/rotlo.jpg' %}" alt="Bapu Special Rotlo"></div>
+          <div class="menu-carousel-content">
+            <h4>Bapu Special Rotlo</h4>
+            <p>Signature rotlo with secret spice blend and pure ghee</p>
+          </div>
+        </div>
+        
+        <div class="menu-carousel-item">
+          <div class="menu-carousel-img"><img src="{% static 'images/rotlo.jpg' %}" alt="Maa Bhagvati Special Rotlo"></div>
+          <div class="menu-carousel-content">
+            <h4>Maa Bhagvati Special Rotlo</h4>
+            <p>Blessed delicacy with premium ingredients and homemade butter</p>
+          </div>
+        </div>
+        
+        <div class="menu-carousel-item">
+          <div class="menu-carousel-img"><img src="{% static 'images/pav-bhaji.jpg' %}" alt="Gujarati Pav Bhaji"></div>
+          <div class="menu-carousel-content">
+            <h4>Gujarati Pav Bhaji</h4>
+            <p>Special sweet-style pav bhaji with a unique Gujarati twist</p>
+          </div>
+        </div>
+        
+        <div class="menu-carousel-item">
+          <div class="menu-carousel-img"><img src="{% static 'images/pulav.jpg' %}" alt="Shahi Pulav"></div>
+          <div class="menu-carousel-content">
+            <h4>Shahi Pulav</h4>
+            <p>Royal rice with aromatic spices, dry fruits, and vegetables</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS SECTION -->
+  <section class="testimonials-section">
+    <div class="container">
+      <div class="section-heading wow animate__animated animate__fadeInUp">
+        <span class="sub-title">Happy Customers</span>
+        <h2>What Our Customers Say</h2>
+      </div>
+      <div class="testimonials-slider owl-carousel owl-theme wow animate__animated animate__fadeInUp">
+        <div class="testimonial-card">
+          <i class="fas fa-quote-left"></i>
+          <p>"The best rotlo I've ever had! Authentic Gujarati taste that reminds me of my grandmother's cooking."</p>
+          <h5>- Priya Patel</h5>
+          <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+        </div>
+        <div class="testimonial-card">
+          <i class="fas fa-quote-left"></i>
+          <p>"Finally found authentic Gujarati rotlo in the city. The Dahi Rotlo is my favorite - highly recommended!"</p>
+          <h5>- Rajesh Mehta</h5>
+          <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+        </div>
+        <div class="testimonial-card">
+          <i class="fas fa-quote-left"></i>
+          <p>"Amazing quality and taste. Freshly made rotlos and excellent service. Regular Rotlo is my go-to comfort food!"</p>
+          <h5>- Rina Desai</h5>
+          <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i></div>
+        </div>
+        <div class="testimonial-card">
+          <i class="fas fa-quote-left"></i>
+          <p>"Bapu's Rotlo brings the authentic taste of Kutch to the city. Their Shahi Pulav is a must-try!"</p>
+          <h5>- Sanjay Joshi</h5>
+          <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FRANCHISE SECTION -->
+  <section class="container">
+    <div class="franchise-form">
+      <div class="text-center mb-4">
+        <span class="sub-title">Franchise Opportunity</span>
+        <h2 style="font-size: 2rem;">🚀 Be a Royal Partner!</h2>
+        <p class="lead">Partner with us and bring authentic Gujarati cuisine to your city.</p>
+      </div>
+
+      <div class="row justify-content-center">
+        <div class="col-lg-8">
+          <h4 class="text-center mb-4" style="color: var(--primary);">📝 Register Your Franchise Interest</h4>
+          <form action="{% url 'submit_franchise' %}" method="POST">
+            {% csrf_token %}
+            <div class="row g-3">
+              <div class="col-md-6"><input type="text" name="full_name" class="form-control" placeholder="Full Name *" required></div>
+              <div class="col-md-6"><input type="email" name="email" class="form-control" placeholder="Email *" required></div>
+              <div class="col-md-6"><input type="tel" name="phone" class="form-control" placeholder="Phone *" required></div>
+              <div class="col-md-6"><input type="text" name="city" class="form-control" placeholder="City *" required></div>
+              <div class="col-md-6"><input type="text" name="state" class="form-control" placeholder="State *" required></div>
+              <div class="col-md-6">
+                <select name="investment_range" class="form-control">
+                  <option value="">Expected Investment Range (Optional)</option>
+                  <option value="10-25 Lakhs">10-25 Lakhs</option>
+                  <option value="25-50 Lakhs">25-50 Lakhs</option>
+                  <option value="50 Lakhs - 1 Crore">50 Lakhs - 1 Crore</option>
+                  <option value="1 Crore+">1 Crore+</option>
+                </select>
+              </div>
+              <div class="col-12"><textarea name="remarks" class="form-control" rows="3" placeholder="Tell us why you'd like to partner with us..."></textarea></div>
+              <div class="consent-box d-flex gap-2 align-items-start">
+                <input type="checkbox" id="consentFranchise" name="consent" required style="margin-top: 3px;">
+                <label for="consentFranchise">I understand this is a <strong>non-binding expression of interest</strong> for Bapu's Rotlo franchise. No legal obligation.</label>
+              </div>
+              <button type="submit" class="btn-ct w-100 justify-content-center"><i class="fas fa-handshake"></i> Submit Franchise Interest</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CUSTOMER REVIEW & RATING FORM - FIXED STAR RATING -->
+  <section class="review-section">
+    <div class="container">
+      <div class="section-heading wow animate__animated animate__fadeInUp">
+        <span class="sub-title">Share Your Experience</span>
+        <h2>Rate & Review Us</h2>
+      </div>
+      
+      <div class="row justify-content-center">
+        <div class="col-lg-8">
+          <div class="review-form-box">
+            <form id="reviewForm" action="{% url 'submit_review' %}" method="POST">
+              {% csrf_token %}
+              <div class="row g-3">
+                <div class="col-md-6"><input type="text" name="reviewer_name" class="form-control" placeholder="Your Name *" required></div>
+                <div class="col-md-6"><input type="email" name="reviewer_email" class="form-control" placeholder="Your Email *" required></div>
+                <div class="col-12">
+                  <label class="rating-label">Your Rating *</label>
+                  <div class="star-rating">
+                    <i class="far fa-star" data-rating="1"></i>
+                    <i class="far fa-star" data-rating="2"></i>
+                    <i class="far fa-star" data-rating="3"></i>
+                    <i class="far fa-star" data-rating="4"></i>
+                    <i class="far fa-star" data-rating="5"></i>
+                  </div>
+                  <input type="hidden" name="rating" id="ratingValue" required>
+                </div>
+                <div class="col-12"><textarea name="review_message" class="form-control" rows="4" placeholder="Write your review here... *" required></textarea></div>
+                <div class="col-12">
+                  <div class="consent-box d-flex gap-2 align-items-start">
+                    <input type="checkbox" id="reviewConsent" name="consent" required>
+                    <label for="reviewConsent">I consent to my review being displayed on the website.</label>
+                  </div>
+                </div>
+                <div class="col-12"><button type="submit" class="btn-ct w-100 justify-content-center"><i class="fas fa-star"></i> Submit Review</button></div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer pt-5 pb-4"><div class="container"><div class="row"><div class="col-lg-4 mb-4"><h6 class="footer-title">BAPU'S ROTLO</h6><p>Bringing the royal culture of Kutch, Gujarat to the global stage.</p></div><div class="col-lg-2 mb-4"><h6 class="footer-title">Quick Links</h6><ul class="footer-menu"><li><a href="{% url 'home' %}">Home</a></li><li><a href="{% url 'menu' %}">Menu</a></li><li><a href="{% url 'about' %}">About</a></li><li><a href="{% url 'contact' %}">Contact</a></li><li><a href="{% url 'franchise' %}">Franchise</a></li></ul></div><div class="col-lg-3 mb-4"><h6 class="footer-title">Contact Info</h6><ul class="footer-menu"><li><i class="fas fa-map-marker-alt me-2"></i> Bhuj, Kutch | Gujarat</li><li><i class="fas fa-phone me-2"></i> +91 94685 98429</li><li><i class="fas fa-envelope me-2"></i> bapusrotlo@gmail.com</li></ul></div><div class="col-lg-3 mb-4"><h6 class="footer-title">Follow Us</h6><ul class="footer-social">
+              <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+              <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+              <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+              <li><a href="#"><i class="fab fa-youtube"></i></a></li>
+            </ul></div></div></div></div>
+  <div class="copyright"><div class="container"><p>&copy; 2026 Bapu's Rotlo. All rights reserved. | Royal Taste of Gujarat | Preserving Heritage, Serving Royalty <i class="fas fa-crown" style="color: var(--gold);"></i></p></div></div>
+</footer>
+
+<!-- Scripts -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
+<script>
+  $(document).ready(function(){
+    // Initialize Story Carousel
+    $(".story-carousel-slider").owlCarousel({
+      loop: true,
+      margin: 20,
+      nav: true,
+      dots: true,
+      autoplay: true,
+      autoplayTimeout: 5000,
+      autoplayHoverPause: true,
+      responsive: {
+        0: { items: 1 },
+        768: { items: 2 },
+        1000: { items: 2 }
       }
+    });
+    
+    // Initialize Menu Carousel (8 items)
+    $(".menu-carousel").owlCarousel({
+      loop: true,
+      margin: 20,
+      nav: true,
+      dots: true,
+      autoplay: true,
+      autoplayTimeout: 4000,
+      autoplayHoverPause: true,
+      responsive: {
+        0: { items: 1 },
+        768: { items: 2 },
+        1000: { items: 3 }
+      }
+    });
+    
+    // Initialize Testimonials Slider
+    $(".testimonials-slider").owlCarousel({
+      loop: true,
+      margin: 20,
+      nav: true,
+      dots: true,
+      autoplay: true,
+      autoplayTimeout: 4000,
+      autoplayHoverPause: true,
+      responsive: {
+        0: { items: 1 },
+        768: { items: 2 },
+        1000: { items: 3 }
+      }
+    });
+    
+    // Initialize WOW animations
+    new WOW().init();
+    
+    // Hide preloader
+    setTimeout(function() {
+      $("#preloader").fadeOut("slow");
+    }, 1000);
+    
+    // Sticky header effect
+    $(window).scroll(function() {
+      if ($(this).scrollTop() > 100) {
+        $('header').css({
+          'background': 'rgba(255, 255, 255, 0.98)',
+          'box-shadow': '0 4px 20px rgba(0,0,0,0.1)'
+        });
+      } else {
+        $('header').css({
+          'background': 'rgba(255, 255, 255, 0.95)',
+          'box-shadow': '0 4px 20px rgba(0,0,0,0.05)'
+        });
+      }
+    });
 
-      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-      const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-      const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-      const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+    // Mobile menu toggle
+    $("#menuToggle").click(function() {
+      $("#mainMenu").toggleClass("active");
+    });
+    
+    // Close menu when clicking a link
+    $(".menu ul li a").click(function() {
+      $("#mainMenu").removeClass("active");
+    });
+    
+    // Auto-close alert messages after 5 seconds
+    setTimeout(function() {
+      $('.alert').fadeOut('slow');
+    }, 5000);
+    
+    // Close button for alerts
+    $('.alert .btn-close').click(function() {
+      $(this).parent().fadeOut('slow');
+    });
 
-      document.getElementById('days').textContent = String(days).padStart(2, '0');
-      document.getElementById('hours').textContent = String(hours).padStart(2, '0');
-      document.getElementById('minutes').textContent = String(minutes).padStart(2, '0');
-      document.getElementById('seconds').textContent = String(seconds).padStart(2, '0');
-    }
+    // Star Rating Functionality - FIXED
+    let selectedRating = 0;
 
-    setInterval(updateCountdown, 1000);
-    updateCountdown();
-  </script>
+    // Hover effect
+    $('.star-rating i').on('mouseenter', function() {
+      const rating = $(this).data('rating');
+      $('.star-rating i').each(function(index) {
+        if (index < rating) {
+          $(this).removeClass('far').addClass('fas');
+        } else {
+          $(this).removeClass('fas').addClass('far');
+        }
+      });
+    });
 
+    // Reset on mouse leave
+    $('.star-rating').on('mouseleave', function() {
+      $('.star-rating i').each(function(index) {
+        if (index < selectedRating) {
+          $(this).removeClass('far').addClass('fas');
+        } else {
+          $(this).removeClass('fas').addClass('far');
+        }
+      });
+    });
+
+    // Click to select rating
+    $('.star-rating i').on('click', function() {
+      selectedRating = $(this).data('rating');
+      $('#ratingValue').val(selectedRating);
+      
+      // Update stars to solid for selected rating
+      $('.star-rating i').each(function(index) {
+        if (index < selectedRating) {
+          $(this).removeClass('far').addClass('fas');
+        } else {
+          $(this).removeClass('fas').addClass('far');
+        }
+      });
+    });
+
+    // Form validation for rating
+    $('#reviewForm').on('submit', function(e) {
+      if (selectedRating === 0) {
+        e.preventDefault();
+        alert('Please select a rating before submitting!');
+        return false;
+      }
+    });
+  });
+</script>
 </body>
 </html>
